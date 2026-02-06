@@ -1,14 +1,17 @@
-# EEP 153 Project 1 — World Bank Panel + Export Dependence
+# EEP 153 Project 1 — Agricultural Export Dependence & Mortality (WBData)
 
-## What this repo does
-This repo pulls World Bank indicator data (2000–2022), builds a country-year panel, and creates an `export_dependent` label based on agricultural export share.
+## Project goal
+We build a country-year dataset (2000–2022) using World Bank data to explore whether **agricultural export dependence** and **agricultural production** relate to **adult mortality** over time.
+We include **countries + territories** and exclude WB “Aggregates” (regions/income groups).
 
 ## Repo structure
-- `src/` — core code (WB data pull + panel construction)
-- `notebooks/` — demo notebook showing the workflow end-to-end
+- `src/` — code for fetching WBData + building the analysis panel
+- `notebooks/` — demo notebook that runs the pipeline end-to-end
 - `tests/` — unit tests (run with pytest)
 
-## How to run (recommended)
-1) Install dependencies (if needed):
+## How to run (for code review)
+From the repo root:
+
+1) Install packages (if needed):
 ```bash
 pip install --user wbdata pandas pytest
