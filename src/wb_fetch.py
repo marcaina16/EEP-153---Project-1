@@ -20,7 +20,6 @@ def fetch_wb_data(indicators, start_year, end_year, cache_path=None, countries=N
             kwargs = {
                 "date": (str(start_year), str(end_year))  # strings required in your wbdata
             }
-            # Only include country if it is NOT None
             if countries is not None:
                 kwargs["country"] = countries
 
@@ -32,15 +31,12 @@ def fetch_wb_data(indicators, start_year, end_year, cache_path=None, countries=N
             time.sleep(1.5 * attempt)
     else:
         raise last_err
-
-    # Convert date -> year
     if "date" not in df.columns:
         raise ValueError(f"Expected a 'date' column, got: {df.columns.tolist()}")
 
     df["year"] = df["date"].astype(str).str[:4].astype(int)
     df = df.drop(columns=["date"])
 
-    # Rename columns if wbdata returned codes instead of clean names
     for code, clean in indicators.items():
         if code in df.columns and clean not in df.columns:
             df = df.rename(columns={code: clean})
