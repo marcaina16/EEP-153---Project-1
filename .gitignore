@@ -9,3 +9,7 @@ __pycache__/
 
 # Local cached data
 data/
+
+# virtual environments
+.venv/
+notebooks/.venv/
