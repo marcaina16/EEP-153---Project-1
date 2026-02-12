@@ -1,6 +1,1 @@
 hello
-
-1. switch to main
-2. pull from remote into main
-3. merge our feature branch with main
-4. push
